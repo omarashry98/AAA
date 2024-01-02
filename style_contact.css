@@ -1,0 +1,525 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,400;0,600;0,700;1,100&family=Roboto:wght@100;300;400;500;700&display=swap');
+:root {
+    --headerclr: #F58220;  
+    --mainclr: #008E97;    
+}
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    text-transform: capitalize;
+    box-sizing: border-box;
+    transition: .2s;
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+.header{
+    padding: 0rem 7%;
+    position: fixed;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--headerclr);
+    z-index: 10000;
+}
+
+.header .logo-container{
+    padding: -4rem;
+}
+
+.nav {
+    display: flex;
+    font-family: 'Montserrat';
+    justify-content: center;
+    align-items: center;
+    background-color: #333; /* Dark background */
+    border-radius: 15px;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid var(--mainclr); /* Bottom border with your main color */
+}
+
+.nav a {
+    color: white;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin: 0 4rem; /* Adjusted margin for a more spaced out look */
+    padding: 0.5rem 1rem; /* Padding for better clickability */
+    position: relative; /* For the hover effect */
+    text-decoration: none; /* Removing the default underline */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+    z-index: 1; /* Stacking context */
+}
+
+.nav a:before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0%;
+    width: 0%;
+    height: 2px;
+    background-color: var(--mainclr); /* Using your main color */
+    transition: width 0.3s ease;
+    z-index: -1; /* Behind the text */
+}
+
+.nav a:hover {
+    color: var(--mainclr); /* Color change on hover */
+}
+
+.nav a:hover:before {
+    width: 100%; /* Full width on hover */
+}
+
+.icon-header div{
+    color: white;
+    margin-left: 1.5rem;
+    font-size: 2rem;
+    cursor: pointer;
+}
+.icon-header div:hover{
+    color: var(--mainclr);
+}
+#menu-bar{
+    display: none;
+}
+.nav.active{
+    top: 100%;
+}
+.search-form{
+    width: 50%;
+    position: absolute;
+    top: -110%;
+    right: 2rem;
+    transition: .2s;
+}
+.search-form input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--headerclr);
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.search-form.active{
+    top: 110%;
+}
+.background-image{
+    background: url(images/plumbingbackground.jpeg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    padding-top: 1100px;
+}
+.inner-back-text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.inner-back-text h1{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    line-height: 5rem;
+    text-transform: uppercase;
+}
+.inner-back-text h1 span{
+    color: var(--mainclr);
+    text-transform: uppercase;
+}
+.inner-back-text p{
+    color: white;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    padding: 1rem;
+}
+.inner-back-btn{
+    display: flex;
+    justify-content: center;
+}
+.inner-back-btn a{
+    margin-right: 1rem;
+}
+.first-btn, .second-btn{
+    padding: 1.5rem 4rem;
+    background: var(--mainclr);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.first-btn:hover, .second-btn:hover{
+    background: var(--headerclr);
+    color: white;
+    letter-spacing: 3px;
+}
+
+.welcome{
+    padding: 3rem 7%;
+}
+.main-welcome{
+    margin-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.inner-welcome{
+    flex: 1 1 45rem;
+}
+.welcome-text h1 {
+    font-size: 40px;
+    color: var(--mainclr);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adding a subtle text shadow */
+    margin-bottom: 20px; /* Slightly reduced the margin for a tighter look */
+    font-weight: 700; /* Making the font a bit bolder */
+    letter-spacing: 1px; /* Adding slight letter spacing for a spaced out look */
+    transition: transform 0.3s; /* Adding a transition for hover effects */
+}
+
+.welcome-text h1:hover {
+    transform: scale(1.05); /* Slightly enlarging the text on hover */
+}
+
+.welcome-text p {
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+    line-height: 1.8; /* Increasing line height for better readability */
+    color: rgba(0, 0, 0, 0.7); /* Darkening the text color a bit */
+    transition: color 0.3s; /* Adding a transition for color change */
+}
+
+.welcome-text p:hover {
+    color: rgba(0, 0, 0, 1); /* Fully revealing the text color on hover */
+}
+
+.welcome-text a{
+    padding: 1.5rem 4rem;
+    margin-top: 20px;
+    background: var(--mainclr);
+    color: white;
+    font-size: 1.5rem;
+    border-radius: 15px;
+}
+
+.welcome-text a:hover{
+    background: var(--headerclr);
+    color: white;
+    letter-spacing: 3px;
+}
+
+.inner-welcome img{
+width: 80%;
+}
+
+.title{
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-size: 3em;
+    line-height: 48px;
+    padding-bottom: 20px;
+    color: var(--mainclr);
+}
+
+.contact-form{
+    margin-left: 200px;
+    margin-right: 100px;
+    margin-top: 90px;
+    margin-bottom: 100px;
+}
+
+.contact-form .form-field{
+    position: relative;
+    margin: 42px 0px;
+}
+
+.contact-form .input-text{
+    margin-left: 15px;
+    margin-right: 200px;
+    display: block;
+    width: 100%;
+    height: 36px;
+    border-width: 0 0 2px 0;
+    border-color: var(--mainclr);
+    font-size: 18px;
+    font-weight: 400;
+}
+.contact-form .input-text:focus + .label,
+.contact-form .input-text.not-empty + .label{
+    transform: translateY(-24px);
+}
+.error-message {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+.contact-form .input-text:focus{
+    outline: none;
+}
+
+.contact-form .label{
+    position: absolute;
+    left: 20px;
+    bottom: 11px;
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 400;
+    color: var(--mainclr);
+    cursor: text;
+    text-transform: capitalize;
+    transition: transform 0.2s ease-in-out;
+}
+
+.contact-form .submit-btn{
+    margin-left: 15px;
+    padding: 1.5rem 4rem;
+    background: var(--mainclr);
+    border-radius: 15px;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.contact-form .submit-btn:hover{
+    background: var(--headerclr);
+    color: white;
+    letter-spacing: 3px;
+}
+
+.chose-us{
+    padding: 5rem 7%;
+    background-color: var(--mainclr);
+}
+.chose-us h1{
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+.chose-us h1 span{
+    color: white;
+}
+.chose-text{
+    color: var(--headerclr);
+    font-size: 1.5rem;
+    padding: 1rem 10rem;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.main-chose{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.inner-chose{
+    flex: 1 1 200px;
+}
+.chose-icon{
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    border: 8px solid var(--mainclr);
+    border-radius: 100%;
+    margin: 0 auto;
+}
+.chose-icon i{
+    font-size: 40px;
+    color: white;
+    transition: .5s;
+}
+.chose-icon i:hover{
+color: var(--headerclr);
+transform: translateY(-25px);
+}
+.inner-chose h2{
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+.inner-chose p{
+    font-size: 1.5rem;
+    padding: 0 1rem;
+}
+.our-services{
+    padding: 5rem 7%;
+}
+.our-services h1{
+    color: var(--headerclr);
+    font-size: 40px;
+    text-align: center;
+    padding: 1rem 0;
+}
+.our-services h1 span{
+    color: var(--mainclr);
+}
+.main-service{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.inner-service{
+    flex: 1 1 300px;
+}
+.inner-service h2{
+    padding: 1rem 0;
+    font-size: 2rem;
+}
+.inner-service p{
+    font-size: 1.5rem;
+    margin-bottom: 25px;
+}
+.inner-service a{
+    padding: 1.5rem 3rem;
+    background: var(--mainclr);
+    color: white;
+    border-radius: 15px;
+
+}
+.inner-service a:hover{
+    background: var(--headerclr);
+    color: white;
+}
+.our-gallery{
+    padding: 4rem 7%;
+}
+.our-gallery h1{
+    color: var(--headerclr);
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.our-gallery h1 span{
+    color: var(--mainclr);
+}
+.main-gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.inner-gallery{
+    flex: 1 1 300px;
+}
+.inner-gallery img{
+    width: 100%;
+    height: 300px;
+    transition: .5s;
+}
+.inner-gallery img:hover{
+    transform: translateY(-25px);
+}
+.customer-review{
+    padding: 4rem 7%;
+}
+.customer-review h1{
+    color: var(--headerclr);
+    font-size: 40px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.customer-review h1 span{
+    color: var(--mainclr);
+}
+.main-review{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.inner-review{
+    flex: 1 1 300px;
+    padding: 3rem 2rem;
+    position: relative;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.inner-review:hover{
+    background: var(--mainclr);
+}
+.inner-review:hover i{
+    color: white;
+}
+.inner-review p{
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+}
+.inner-review img{
+    width: 50px;
+}
+.inner-review i{
+    position: absolute;
+    font-size: 3rem;
+    left: 1rem;
+    top: 1rem;
+    color: var(--mainclr);
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:767px) {
+    html{
+        font-size: 55%;
+    }
+    #menu-bar{
+        display: initial;
+    }
+    .header{
+        padding: 2rem;
+    }
+    .nav{
+        position: absolute;
+        top: 100%;
+        width: 80%;
+        left: 10%;
+        top: -1000%;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+        border-radius: 15px;
+        transition: .5s;
+    }
+    .nav a{
+        color: black;
+        display: block;
+        margin: 1rem;
+        font-size: 14px;
+    }
+    .search-form{
+        width: 90%;
+    }
+    .inner-back-text{
+        width: 100% !important;
+    }
+    .inner-welcome img{
+        margin-top: 20px;
+        text-align: center;
+        }
+        .chose-text{
+            padding: 1rem 2rem;
+         
+        }
+}
